@@ -1,0 +1,58 @@
+<table class="table bg-light rounded">
+  <thead>
+    <tr>
+      <th scope="col">Imagen</th>
+      <th scope="col">Nombre</th>
+      <th scope="col">Precio</th>
+      <th scope="col">Peso/Formato</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let product of products">
+      <td>
+        <img
+          (click)="show(product.thumbnail)"
+          class="img-product"
+          [src]="product.thumbnail"
+          [alt]="product.titulo"
+        />
+      </td>
+      <td>{{ product.titulo }}</td>
+      <td>{{ product.precio | currency: "EUR" }}</td>
+      <td>{{ product.peso }} {{ product.formato }}</td>
+      <td><a [routerLink]="['/products', product.id]">Detalles</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<div
+  [style.display]="showModal ? 'block' : 'none'"
+  class="modal"
+  id="imagemodal"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="myModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-body">
+        <img
+          [src]="productImg"
+          id="imagepreview"
+          style="width: 425px; height: 425px"
+        />
+      </div>
+      <div class="modal-footer">
+        <button
+          type="button"
+          class="btn btn-danger"
+          data-dismiss="modal"
+          (click)="hide()"
+        >
+          X
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
