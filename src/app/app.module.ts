@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { MainPageComponent } from './main-page/main-page.component';
 import { HeaderComponent } from './components/header/header.component';
 import { ListViewComponent } from './components/list-view/list-view.component';
 import { HttpClientModule } from '@angular/common/http';
@@ -16,7 +15,6 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
 @NgModule({
   declarations: [
     AppComponent,
-    MainPageComponent,
     HeaderComponent,
     ListViewComponent,
     DetailProductComponent,

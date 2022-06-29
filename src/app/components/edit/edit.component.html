@@ -3,17 +3,22 @@
     <div class="card" style="width: 100%">
       <img [src]="product?.thumbnail" [alt]="product?.titulo" />
       <div class="card-body">
-        <p class="card-text"><strong>Titulo: </strong> {{ product?.titulo }}</p>
         <p class="card-text">
-          <strong>Precio: </strong> {{ product?.precio | currency: "EUR" }}
+          <strong>Titulo: </strong> {{ product?.display_name }}
         </p>
         <p class="card-text">
-          <strong>Peso: </strong> {{ product?.peso }} {{ product?.formato }}
+          <strong>Precio: </strong>
+          {{ product?.price_instructions.unit_price | currency: "EUR" }}
+        </p>
+        <p class="card-text">
+          <strong>Peso: </strong> {{ product?.price_instructions.unit_size }}
+          {{ product?.price_instructions.size_format }}
         </p>
       </div>
     </div>
   </div>
   <div class="col-md-7">
+    <p>Editar Producto:</p>
     <form class="bg-light rounded">
       <div class="form-group my-1 p-3">
         <label class="my-2">Modificar título:</label>
@@ -22,13 +27,13 @@
         <input
           class="form-control"
           type="number"
-          [placeholder]="product?.precio"
+          [placeholder]="product?.price_instructions.unit_price"
         />
         <label class="my-2">Modificar peso:</label>
         <input
           class="form-control"
           type="number"
-          [placeholder]="product?.peso"
+          [placeholder]="product?.price_instructions.unit_size"
         />
         <select class="form-select my-4" aria-label="KG">
           <option selected>Modificar formato:</option>
@@ -39,7 +44,9 @@
         <br />
         <input type="file" class="form-control-file" id="thumbnailImg" />
       </div>
-      <button class="btn btn-success my-4 form-control">Editar Producto</button>
+      <button (click)="editProduct()" class="btn btn-success my-4 form-control">
+        Editar Producto
+      </button>
     </form>
   </div>
 </div>

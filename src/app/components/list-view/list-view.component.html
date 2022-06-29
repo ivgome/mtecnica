@@ -9,18 +9,21 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let product of products">
+    <tr *ngFor="let product of productList">
       <td>
         <img
           (click)="onShowModal(product.thumbnail)"
           class="img-product"
           [src]="product.thumbnail"
-          [alt]="product.titulo"
+          [alt]="product.slug"
         />
       </td>
-      <td>{{ product.titulo }}</td>
-      <td>{{ product.precio | currency: "EUR" }}</td>
-      <td>{{ product.peso }} {{ product.formato }}</td>
+      <td>{{ product.display_name | slice: 0:40 }}...</td>
+      <td>{{ product.price_instructions.unit_price | currency: "EUR" }}</td>
+      <td>
+        {{ product.price_instructions.unit_size }}
+        {{ product.price_instructions.size_format }}
+      </td>
       <td>
         <button class="btn btn-success text-white m-1">
           <a class="text-white" [routerLink]="['/productos', product.id]"

@@ -1,24 +1,32 @@
-<div class="card">
+<div *ngIf="product != null" class="card">
   <div class="card-header">Detalles de producto:</div>
   <div class="card-body">
     <div class="row">
       <div class="col-6">
-        <img [src]="product?.thumbnail" [alt]="product?.titulo" />
+        <img
+          class="img-product"
+          [src]="product.thumbnail"
+          [alt]="product.slug"
+        />
       </div>
       <div class="col-6">
-        <p class="card-text"><strong>Titulo: </strong> {{ product?.titulo }}</p>
         <p class="card-text">
-          <strong>Precio: </strong> {{ product?.precio | currency: "EUR" }}
+          <strong>Titulo: </strong> {{ product.display_name }}
         </p>
         <p class="card-text">
-          <strong>Peso: </strong> {{ product?.peso }} {{ product?.formato }}
+          <strong>Precio: </strong>
+          {{ product.price_instructions.unit_price | currency: "EUR" }}
+        </p>
+        <p class="card-text">
+          <strong>Peso: </strong> {{ product.price_instructions.unit_size }}
+          {{ product.price_instructions.size_format }}
         </p>
       </div>
     </div>
   </div>
   <div class="card-footer text-muted">
     <button class="btn btn-warning text-white m-1">
-      <a class="text-white" [routerLink]="['/editar', product?.id]">Editar</a>
+      <a class="text-white" [routerLink]="['/editar', product.id]">Editar</a>
     </button>
   </div>
 </div>
