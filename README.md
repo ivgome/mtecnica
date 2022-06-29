@@ -1,7 +1,7 @@
 # MercadonaApi
 
 1. Clonar el repositorio.
-2. Ejecutar `npm i` en caso de requerirlo.
+2. Ejecutar `npm i`.
 3. Proyecto generado con [Angular CLI](https://github.com/angular/angular-cli) version 14.0.0.
 
 ## Development server
