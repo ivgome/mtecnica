@@ -16,4 +16,4 @@ Este proyecto conecta con la API facilitada para la prueba, devolviendo la infor
 En la parte de estilos, BootStrap ha sido la tecnología de mayor peso, junto con html y css en casos puntuales.
 
 Previsualización ventana principal:
-![Image text](https://ibb.co/zNH6bjc)
+![Image text]([preview]https://ibb.co/zNH6bjc)
