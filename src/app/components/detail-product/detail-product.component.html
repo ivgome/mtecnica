@@ -1,43 +1,24 @@
-<div class="container row bg-ligth">
-  <div class="col-md-5">
-    <div><h2>Detalles:</h2></div>
-    <ul class="list-group">
-      <li class="list-group-item">
-        <img
-          src="https://prod-mercadona.imgix.net/images/0214398df72517cf903b166e92e11bca.jpg?fit=crop&h=300&w=300"
-          alt=""
-        />
-      </li>
-      <li class="list-group-item">
-        <h3>{{ product?.titulo }}</h3>
-      </li>
-      <li class="list-group-item">
-        Precio: {{ product?.precio | currency: "EUR" }}
-      </li>
-      <li class="list-group-item">
-        Peso: {{ product?.peso }} {{ product?.formato }}
-      </li>
-    </ul>
-  </div>
-  <div class="col-md-7">
-    <div><h2>Editar Ficha:</h2></div>
-    <form class="bg-light rounded">
-      <div class="form-group my-1 p-3">
-        <label class="my-2">Modificar título:</label>
-        <input class="form-control" type="text" placeholder="Chocolate..." />
-        <label class="my-2">Modificar precio(€):</label>
-        <input class="form-control" type="number" placeholder="0.75..." />
-        <label class="my-2">Modificar peso:</label>
-        <input class="form-control" type="number" placeholder="80" />
-        <select class="form-select my-4" aria-label="KG">
-          <option selected>Modificar formato:</option>
-          <option value="1">Kg</option>
-          <option value="2">g</option>
-        </select>
-        <label class="my-2">Nueva miniatura:</label>
-        <input type="file" class="form-control-file" id="thumbnailImg" />
+<div class="card">
+  <div class="card-header">Detalles de producto:</div>
+  <div class="card-body">
+    <div class="row">
+      <div class="col-6">
+        <img [src]="product?.thumbnail" [alt]="product?.titulo" />
       </div>
-      <button class="btn btn-success my-4 form-control">Editar Producto</button>
-    </form>
+      <div class="col-6">
+        <p class="card-text"><strong>Titulo: </strong> {{ product?.titulo }}</p>
+        <p class="card-text">
+          <strong>Precio: </strong> {{ product?.precio | currency: "EUR" }}
+        </p>
+        <p class="card-text">
+          <strong>Peso: </strong> {{ product?.peso }} {{ product?.formato }}
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="card-footer text-muted">
+    <button class="btn btn-warning text-white m-1">
+      <a class="text-white" [routerLink]="['/editar', product?.id]">Editar</a>
+    </button>
   </div>
 </div>

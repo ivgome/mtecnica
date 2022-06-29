@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiCallService } from '../../api-call.service';
-import { Product, products } from '../../interfaces/Product';
+import { products } from '../../interfaces/Product';
+import { Category } from '../../interfaces/ProductsResponse';
 
 @Component({
   selector: 'app-list-view',
@@ -8,9 +9,8 @@ import { Product, products } from '../../interfaces/Product';
   styleUrls: ['./list-view.component.css'],
 })
 export class ListViewComponent implements OnInit {
-  // productList: any;
   products = products;
-  productList: Product[] = [];
+  productList: any;
   showModal: boolean = false;
   productImg!: string;
 
@@ -23,12 +23,12 @@ export class ListViewComponent implements OnInit {
     });
   }
 
-  show(productImg: string) {
+  onShowModal(productImg: string) {
     this.showModal = true;
     this.productImg = productImg;
   }
 
-  hide() {
+  onHideModal() {
     this.showModal = false;
   }
 }

@@ -10,6 +10,8 @@ import { DetailProductComponent } from './components/detail-product/detail-produ
 import { CreateProductComponent } from './components/create-product/create-product.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { FormsModule } from '@angular/forms';
+import { EditComponent } from './components/edit/edit.component';
+import { NotFoundComponent } from './components/not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +22,8 @@ import { FormsModule } from '@angular/forms';
     DetailProductComponent,
     CreateProductComponent,
     NavBarComponent,
+    EditComponent,
+    NotFoundComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
   providers: [],

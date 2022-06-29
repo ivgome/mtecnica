@@ -1,13 +1,12 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Product, products } from '../../interfaces/Product';
+import { Product, products } from 'src/app/interfaces/Product';
 
 @Component({
-  selector: 'app-detail-product',
-  templateUrl: './detail-product.component.html',
-  styles: ['a {text-decoration:none}'],
+  selector: 'app-edit',
+  templateUrl: './edit.component.html',
 })
-export class DetailProductComponent implements OnInit {
+export class EditComponent implements OnInit {
   product: Product | undefined;
   constructor(private route: ActivatedRoute) {}
 

@@ -1,0 +1,45 @@
+<div class="container row bg-ligth">
+  <div class="col-md-5">
+    <div class="card" style="width: 100%">
+      <img [src]="product?.thumbnail" [alt]="product?.titulo" />
+      <div class="card-body">
+        <p class="card-text"><strong>Titulo: </strong> {{ product?.titulo }}</p>
+        <p class="card-text">
+          <strong>Precio: </strong> {{ product?.precio | currency: "EUR" }}
+        </p>
+        <p class="card-text">
+          <strong>Peso: </strong> {{ product?.peso }} {{ product?.formato }}
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-7">
+    <form class="bg-light rounded">
+      <div class="form-group my-1 p-3">
+        <label class="my-2">Modificar título:</label>
+        <input class="form-control" type="text" placeholder="Chocolate..." />
+        <label class="my-2">Modificar precio(€):</label>
+        <input
+          class="form-control"
+          type="number"
+          [placeholder]="product?.precio"
+        />
+        <label class="my-2">Modificar peso:</label>
+        <input
+          class="form-control"
+          type="number"
+          [placeholder]="product?.peso"
+        />
+        <select class="form-select my-4" aria-label="KG">
+          <option selected>Modificar formato:</option>
+          <option value="1">Kg</option>
+          <option value="2">g</option>
+        </select>
+        <label class="my-2">Nueva miniatura:</label>
+        <br />
+        <input type="file" class="form-control-file" id="thumbnailImg" />
+      </div>
+      <button class="btn btn-success my-4 form-control">Editar Producto</button>
+    </form>
+  </div>
+</div>

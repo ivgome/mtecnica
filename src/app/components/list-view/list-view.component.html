@@ -1,17 +1,18 @@
-<table class="table bg-light rounded">
-  <thead>
+<table class="table bg-light">
+  <thead class="bg-dark text-white">
     <tr>
       <th scope="col">Imagen</th>
       <th scope="col">Nombre</th>
       <th scope="col">Precio</th>
       <th scope="col">Peso/Formato</th>
+      <th>Acciones</th>
     </tr>
   </thead>
   <tbody>
     <tr *ngFor="let product of products">
       <td>
         <img
-          (click)="show(product.thumbnail)"
+          (click)="onShowModal(product.thumbnail)"
           class="img-product"
           [src]="product.thumbnail"
           [alt]="product.titulo"
@@ -20,37 +21,36 @@
       <td>{{ product.titulo }}</td>
       <td>{{ product.precio | currency: "EUR" }}</td>
       <td>{{ product.peso }} {{ product.formato }}</td>
-      <td><a [routerLink]="['/products', product.id]">Detalles</a></td>
+      <td>
+        <button class="btn btn-success text-white m-1">
+          <a class="text-white" [routerLink]="['/productos', product.id]"
+            >Detalles</a
+          >
+        </button>
+        <button class="btn btn-warning text-white m-1">
+          <a class="text-white" [routerLink]="['/editar', product.id]"
+            >Editar</a
+          >
+        </button>
+      </td>
     </tr>
   </tbody>
 </table>
 
-<div
-  [style.display]="showModal ? 'block' : 'none'"
-  class="modal"
-  id="imagemodal"
-  tabindex="-1"
-  role="dialog"
-  aria-labelledby="myModalLabel"
-  aria-hidden="true"
->
+<div [style.display]="showModal ? 'block' : 'none'" class="modal" role="dialog">
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-body">
-        <img
-          [src]="productImg"
-          id="imagepreview"
-          style="width: 425px; height: 425px"
-        />
+        <img [src]="productImg" style="width: 425px; height: 425px" />
       </div>
       <div class="modal-footer">
         <button
           type="button"
           class="btn btn-danger"
           data-dismiss="modal"
-          (click)="hide()"
+          (click)="onHideModal()"
         >
-          X
+          Cerrar
         </button>
       </div>
     </div>

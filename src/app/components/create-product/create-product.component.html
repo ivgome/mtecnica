@@ -1,19 +1,21 @@
-<form class="col-md-4 bg-light rounded p-3">
-  <div class="form-group my-1">
-    <label class="my-2">Título de producto:</label>
-    <input class="form-control" type="text" placeholder="Chocolate..." />
-    <label class="my-2">Precio de producto (€):</label>
-    <input class="form-control" type="number" placeholder="0.75..." />
-    <label class="my-2">Peso de producto:</label>
-    <input class="form-control" type="number" placeholder="80" />
-    <select class="form-select my-4" aria-label="KG">
-      <option selected>Formato de peso:</option>
-      <option value="1">Kg</option>
-      <option value="2">g</option>
-    </select>
-    <br />
-    <label class="my-2">Miniatura de producto:</label>
-    <input type="file" class="form-control-file" id="thumbnailImg" />
-  </div>
-  <button class="btn btn-success my-4 form-control">Crear Producto</button>
-</form>
+<div class="create-container">
+  <form class="col bg-light rounded p-3">
+    <div class="form-group my-1">
+      <label class="my-2">Título de producto:</label>
+      <input class="form-control" type="text" placeholder="Chocolate..." />
+      <label class="my-2">Precio de producto (€):</label>
+      <input class="form-control" type="number" placeholder="0.75..." />
+      <label class="my-2">Peso de producto:</label>
+      <input class="form-control" type="number" placeholder="80" />
+      <select class="form-select my-4" aria-label="KG">
+        <option selected>Formato de peso:</option>
+        <option value="1">Kg</option>
+        <option value="2">g</option>
+      </select>
+
+      <label class="my-2">Miniatura de producto: </label> <br />
+      <input type="file" class="form-control-file" id="thumbnailImg" />
+    </div>
+    <button class="btn btn-success my-4">Crear Producto</button>
+  </form>
+</div>
