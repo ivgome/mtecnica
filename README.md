@@ -13,4 +13,4 @@ Navegar a la url: `http://localhost:4200/`.
 
 Este proyecto conecta con la API facilitada para la prueba, devolviendo la información necesaria para su realización.
 
-En la parte de estilos, BootStrap ha sido la tecnología de mayor peso, junto con html y css en casos puntuales.
+En la parte de diseño y estilos, BootStrap ha sido la tecnología de mayor peso, junto con html y css en casos puntuales.
