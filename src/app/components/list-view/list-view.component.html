@@ -1,60 +1,66 @@
-<table class="table bg-light">
-  <thead class="bg-dark text-white">
-    <tr>
-      <th scope="col">Imagen</th>
-      <th scope="col">Nombre</th>
-      <th scope="col">Precio</th>
-      <th scope="col">Peso/Formato</th>
-      <th>Acciones</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let product of productList">
-      <td>
-        <img
-          (click)="onShowModal(product.thumbnail)"
-          class="img-product"
-          [src]="product.thumbnail"
-          [alt]="product.slug"
-        />
-      </td>
-      <td>{{ product.display_name | slice: 0:40 }}...</td>
-      <td>{{ product.price_instructions.unit_price | currency: "EUR" }}</td>
-      <td>
-        {{ product.price_instructions.unit_size }}
-        {{ product.price_instructions.size_format }}
-      </td>
-      <td>
-        <button class="btn btn-success text-white m-1">
-          <a class="text-white" [routerLink]="['/productos', product.id]"
-            >Detalles</a
-          >
-        </button>
-        <button class="btn btn-warning text-white m-1">
-          <a class="text-white" [routerLink]="['/editar', product.id]"
-            >Editar</a
-          >
-        </button>
-      </td>
-    </tr>
-  </tbody>
-</table>
+<div class="table-responsive-sm">
+  <table class="table table-hover bg-light">
+    <thead class="bg-dark text-white">
+      <tr>
+        <th scope="col">Imagen</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">Precio</th>
+        <th scope="col">Peso/Formato</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let product of productList">
+        <td>
+          <img
+            (click)="onShowModal(product.thumbnail)"
+            class="img-product"
+            [src]="product.thumbnail"
+            [alt]="product.slug"
+          />
+        </td>
+        <td>{{ product.display_name | slice: 0:40 }}...</td>
+        <td>{{ product.price_instructions.unit_price | currency: "EUR" }}</td>
+        <td>
+          {{ product.price_instructions.unit_size }}
+          {{ product.price_instructions.size_format }}
+        </td>
+        <td>
+          <button class="btn btn-success text-white m-1">
+            <a class="text-white" [routerLink]="['/productos', product.id]"
+              >Detalles</a
+            >
+          </button>
+          <button class="btn btn-warning text-white m-1">
+            <a class="text-white" [routerLink]="['/editar', product.id]"
+              >Editar</a
+            >
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
 
-<div [style.display]="showModal ? 'block' : 'none'" class="modal" role="dialog">
-  <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content">
-      <div class="modal-body">
-        <img [src]="productImg" style="width: 425px; height: 425px" />
-      </div>
-      <div class="modal-footer">
-        <button
-          type="button"
-          class="btn btn-danger"
-          data-dismiss="modal"
-          (click)="onHideModal()"
-        >
-          Cerrar
-        </button>
+  <div
+    [style.display]="showModal ? 'block' : 'none'"
+    class="modal"
+    role="dialog"
+  >
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-body">
+          <img [src]="productImg" style="width: 425px; height: 425px" />
+        </div>
+        <div class="modal-footer">
+          <button
+            type="button"
+            class="btn btn-danger"
+            data-dismiss="modal"
+            (click)="onHideModal()"
+          >
+            Cerrar
+          </button>
+        </div>
       </div>
     </div>
   </div>
